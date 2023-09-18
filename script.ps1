@@ -41,3 +41,7 @@ function get_monitors_info {
         echo "Manufacturer : $($Manufacturer)`nModel        : $($Name)`nSerial Number: $($Serial)`n"
     }
 }
+
+function time_f {
+    return Get-Date -Format "dd/MM/yyyy HH:mm:ss"
+}
