@@ -44,8 +44,7 @@ function get_monitors_info {
 
 # get current time
 function time_f {
-    Write-Output "------------ Czas ------------"
-    Get-Date -Format "dd/MM/yyyy HH:mm:ss"
+    Get-Date -Format "---- dd/MM/yyyy  HH:mm:ss ----"
 }
 
 # save all gathered data into output.txt
