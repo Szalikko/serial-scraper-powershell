@@ -1,4 +1,3 @@
-
 # get pc info
 function get_pc_info {
     $manufacturer = (Get-WmiObject win32_bios | Select-Object Manufacturer | Format-Table -HideTableHeaders | Out-String).Trim()
@@ -46,7 +45,7 @@ function get_monitors_info {
 # get current time
 function time_f {
     Write-Output "------------ Czas ------------"
-    return Get-Date -Format "dd/MM/yyyy HH:mm:ss"
+    Get-Date -Format "dd/MM/yyyy HH:mm:ss"
 }
 
 # save all gathered data into output.txt
@@ -57,8 +56,6 @@ function output {
     time_f
 }
 
-# save data into output.txt
-output | Out-File -FilePath .\output.txt
-
-
-# d-_-b
+output | Out-File -FilePath .\output.txt 
+Write-Host "OK"
+Pause(3600)
