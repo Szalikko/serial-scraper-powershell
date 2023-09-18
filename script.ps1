@@ -58,4 +58,4 @@ function output {
 
 output | Out-File -FilePath .\output.txt 
 Write-Host "OK"
-Pause(3600)
+Pause
