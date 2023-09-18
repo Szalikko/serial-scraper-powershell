@@ -1,9 +1,9 @@
 
 # function to get pc info
 function get_pc_info {
-    $manufacturer = (Get-WmiObject win32_bios | select Manufacturer | Format-Table -HideTableHeaders | Out-String).Trim()
-    $model = (Get-CimInstance Win32_ComputerSystemProduct | Select Name | Format-Table -HideTableHeaders | Out-String).Trim()
-    $serial = (Get-WmiObject win32_bios | select Serialnumber | Format-Table -HideTableHeaders | Out-String).Trim()
+    $manufacturer = (Get-WmiObject win32_bios | Select-Object Manufacturer | Format-Table -HideTableHeaders | Out-String).Trim()
+    $model = (Get-CimInstance Win32_ComputerSystemProduct | Select-Object Name | Format-Table -HideTableHeaders | Out-String).Trim()
+    $serial = (Get-WmiObject win32_bios | Select-Object Serialnumber | Format-Table -HideTableHeaders | Out-String).Trim()
 
     $result = "Manufacturer : $($manufacturer)`nModel        : $($model)`nSerial Number: $($serial)`n------------------------------"
                 
@@ -38,7 +38,7 @@ function get_monitors_info {
         $Name = Decode $Monitor.UserFriendlyName -notmatch 0
         $Serial = Decode $Monitor.SerialNumberID -notmatch 0
         
-        echo "Manufacturer : $($Manufacturer)`nModel        : $($Name)`nSerial Number: $($Serial)`n"
+        Write-Output "Manufacturer : $($Manufacturer)`nModel        : $($Name)`nSerial Number: $($Serial)`n"
     }
 }
 
